@@ -8,7 +8,8 @@ int main()
 	struct mosquitto* mosq;
 	mosquitto_lib_init();
 	mosq = mosquitto_new("publisher-test", true, NULL);
-	rc = mosquitto_connect(mosq, "localhost", 1883, 60);
+	//rc = mosquitto_connect(mosq, "localhost", 1883, 60);
+	rc = mosquitto_connect(mosq, "broker.emqx.io", 1883, 60);
 	if(rc != 0){
 
 	printf("client can not connect to broker");
