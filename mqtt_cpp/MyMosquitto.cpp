@@ -1,10 +1,11 @@
 #include "MyMosquitto.h"
-
+#include<iostream>
 
 void mosquitto_callback_on_connect(struct mosquitto *mosq_obj, void *obj, int rc) {
+	std::cout << "mosquitto_callback_on_connect"; 
 	(void)mosq_obj;
 	MyMosquitto *mosq = (MyMosquitto*)obj;
-	
+	std::cout << "onconnect rc:" << rc; 
 	switch(rc) {
 	case 0:
 		// Connected
@@ -41,7 +42,7 @@ static void mosquitto_callback_on_message(struct mosquitto *mosq_obj, void *obj,
 	const int len = mosq_message->payloadlen;
 	char* payload = (char*)mosq_message->payload;
 	for(int i=0;i<len;i++) ss << (char)(payload[i]);
-	
+	std::cout << "topic:" << ss.str(); 
 	mosq->onMessage(topic, ss.str());
 }
 
