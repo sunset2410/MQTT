@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(lgmqtt VERSION 0.1.0)
+project(mqtt VERSION 0.1.0)
 
 include(CTest)
 enable_testing()

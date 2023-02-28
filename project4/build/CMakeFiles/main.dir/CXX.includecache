@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/mqttclient.h
+mosquitto.h
+../include/mosquitto.h
+
+../include/mqttmanager.h
+mqttclient.h
+../include/mqttclient.h
+mosquitto.h
+-
+map
+-
+mutex
+-
+
+/home/sunrise/projects/MQTT/MQTT/project4/src/main.cpp
+iostream
+-
+unistd.h
+/home/sunrise/projects/MQTT/MQTT/project4/src/unistd.h
+mqttmanager.h
+/home/sunrise/projects/MQTT/MQTT/project4/src/mqttmanager.h
+mutex
+-
+

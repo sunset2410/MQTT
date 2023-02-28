@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/MqttClient.h
+mosquitto.h
+-
+
+/home/sunrise/projects/MQTT/MQTT/Project1/src/MqttClient.cpp
+MqttClient.h
+/home/sunrise/projects/MQTT/MQTT/Project1/src/MqttClient.h
+bits/stdc++.h
+-
+

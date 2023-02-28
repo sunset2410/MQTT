@@ -12,9 +12,10 @@
 
 #include <unistd.h>
 #include <mosquitto.h>
+#include <mosquittopp.h>
 
-
-class MyMosquitto {
+//class MyMosquitto : public mosqpp::mosquittopp 
+class MyMosquitto : public mosqpp::mosquittopp  {
 private:
     struct mosquitto *mosq;
 	volatile bool running;

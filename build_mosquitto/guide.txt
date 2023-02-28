@@ -3,3 +3,19 @@ git clone https://github.com/eclipse/mosquitto.git
 git clone https://github.com/DaveGamble/cJSON.git
 
 pass sudo : chi.a2..#
+
+chmod +x a.sh
+
+./a.sh
+
+
+// build
+rm -rf build
+
+mkdir build
+
+cd build
+
+cmake ..
+
+make

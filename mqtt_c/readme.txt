@@ -1,3 +1,6 @@
+g++ mqtt_pub.c -o main -lmosquitto
+
+
 1. cai dat thu vien mosquitto vao ubuntu
 
 sudo apt-get update
@@ -67,3 +70,23 @@ to:
 in the "client.c"-file (line 26) for a global search for the Header-File.
 
 
+#####################################################
+
+install -m 644 mosquitto_passwd.1 "/usr/local/share/man/man1/mosquitto_passwd.1"
+install -m 644 mosquitto_pub.1 "/usr/local/share/man/man1/mosquitto_pub.1"
+install -m 644 mosquitto_sub.1 "/usr/local/share/man/man1/mosquitto_sub.1"
+install -m 644 mosquitto_rr.1 "/usr/local/share/man/man1/mosquitto_rr.1"
+install -d "/usr/local/share/man/man7"
+install -m 644 mqtt.7 "/usr/local/share/man/man7/mqtt.7"
+install -m 644 mosquitto-tls.7 "/usr/local/share/man/man7/mosquitto-tls.7"
+install -d "/usr/local/share/man/man3"
+install -m 644 libmosquitto.3 "/usr/local/share/man/man3/libmosquitto.3"
+make[1]: Leaving directory '/home/sunrise/projects/MQTT/MQTT/build_mosquitto/mosquitto/man'
+install -d "/etc/mosquitto"
+install -m 644 mosquitto.conf "/etc/mosquitto/mosquitto.conf.example"
+install -m 644 aclfile.example "/etc/mosquitto/aclfile.example"
+install -m 644 pwfile.example "/etc/mosquitto/pwfile.example"
+install -m 644 pskfile.example "/etc/mosquitto/pskfile.example"
+/sbin/ldconfig.real: /usr/local/lib/libmosquittopp.so.1 is not a symbolic link
+
+/sbin/ldconfig.real: /usr/local/lib/libmosquitto.so.1 is not a symbolic link

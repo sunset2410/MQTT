@@ -52,7 +52,7 @@ static void mosquitto_callback_on_message(struct mosquitto *mosq_obj, void *obj,
 MyMosquitto::MyMosquitto() {
     mosquitto_lib_init();
     this->running = false;
-    this->mosq = mosquitto_new(NULL, true, this);
+    this->mosq = mosquitto_new("vin11", false , this);
     if(this->mosq == NULL) throw "Error creating mosquitto instance";
     
     
@@ -79,6 +79,7 @@ void MyMosquitto::set_tls(const char* cacert, const char* certfile, const char* 
 }
 
 void MyMosquitto::set_tls_insecure(bool enabled) {
+	std::cout << __func__ << "\n";
 	int value = (enabled?1:0);
 	if(mosquitto_tls_insecure_set(this->mosq, value) != MOSQ_ERR_SUCCESS) 
 		throw "TLS insecure set failed";
@@ -91,6 +92,7 @@ void MyMosquitto::set_username_password(const char* username, const char* passwo
 
 
 void MyMosquitto::connect(const char* remote, const int port, const int aliveDelay) {	
+	std::cout << __func__ << "\n";
 	int ret = mosquitto_connect(this->mosq, remote, port, aliveDelay);
 	if(ret != MOSQ_ERR_SUCCESS)
 		throw mosquitto_strerror(ret);
@@ -98,6 +100,7 @@ void MyMosquitto::connect(const char* remote, const int port, const int aliveDel
 }
 	
 void MyMosquitto::subscribe(const std::string &topic) {
+	std::cout << __func__ << "\n";
 	const int qos = 0;
 	int ret = mosquitto_subscribe(this->mosq, NULL, topic.c_str(), qos);
 	if(ret != MOSQ_ERR_SUCCESS)
@@ -105,6 +108,7 @@ void MyMosquitto::subscribe(const std::string &topic) {
 }
 
 void MyMosquitto::publish(const std::string &topic, const std::string &message) {
+	std::cout << __func__ << "\n";
 	const char *payload = message.c_str();
 	const int len = (int)message.size();
 	
@@ -116,11 +120,13 @@ void MyMosquitto::publish(const std::string &topic, const std::string &message) 
 
 	
 void MyMosquitto::close() {
+	std::cout << __func__ << "\n";
 	this->running = false;
 	mosquitto_disconnect(this->mosq);
 }
 
 void MyMosquitto::loop(const bool tryReconnect) {
+	std::cout << __func__ << "\n";
 	int errorCounter = 0;
 	
 	// XXX: Consider switching to mosquitto_loop_forever
@@ -151,5 +157,6 @@ void MyMosquitto::loop(const bool tryReconnect) {
 }
 
 void MyMosquitto::cleanup_library() {
+	std::cout << __func__ << "\n";
     mosquitto_lib_cleanup();
 }
