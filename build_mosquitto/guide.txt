@@ -1,0 +1,5 @@
+git clone https://github.com/eclipse/mosquitto.git
+
+git clone https://github.com/DaveGamble/cJSON.git
+
+pass sudo : chi.a2..#
